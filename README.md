@@ -1,4 +1,7 @@
 # Simple Kafka with Docker
+- Steven Figo - 5027221021
+- Sighra Attariq Sumerejati	- 5027221068
+
 Proyek ini adalah contoh sederhana untuk menjalankan Apache Kafka menggunakan Docker. Proyek ini mencakup konfigurasi *Kafka* dan *Zookeeper* untuk menjalankan instance Kafka yang dapat diakses lokal untuk kebutuhan pengembangan.
 
 ## Menjalankan Kafka dengan Docker
