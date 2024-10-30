@@ -6,8 +6,8 @@ Proyek ini adalah contoh sederhana untuk menjalankan Apache Kafka menggunakan Do
 
 Clone proyek ini ke komputer lokal Anda:
 ```bash
-git clone https://github.com/username/simple-kafka-docker.git
-cd simple-kafka-docker
+git clone https://github.com/derkora/simple-kafka.git
+cd simple-kafka
 ```
 
 2. Konfigurasi docker-compose.yml
