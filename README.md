@@ -37,16 +37,16 @@ Setelah Kafka berjalan, Anda bisa menggunakan Kafka producer dan consumer untuk 
 - Membuat Topik
 
 Jalankan perintah berikut untuk membuat topik baru bernama contoh-topic:
-
 ```bash
-docker exec -it <container_kafka> kafka-topics.sh --create --topic <contoh-topik> --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+docker exec -it <nama_container_kafka> kafka-topics.sh --create --topic <contoh-topik> --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
 ```
+
 - Mengirim Pesan
 
 Untuk mengirim pesan menggunakan producer:
 
 ```bash
-docker exec -it <container_kafka> kafka-console-producer.sh --topic <contoh-topik> --bootstrap-server localhost:9092
+docker exec -it <nama_container_kafka> kafka-console-producer.sh --topic <contoh-topik> --bootstrap-server localhost:9092
 ```
 Ketik pesan Anda, kemudian tekan Enter untuk mengirim.
 
@@ -55,7 +55,7 @@ Ketik pesan Anda, kemudian tekan Enter untuk mengirim.
 Untuk menerima pesan menggunakan consumer:
 
 ```bash
-docker exec -it <container_kafka> kafka-console-consumer.sh --topic <contoh-topik> --bootstrap-server localhost:9092 --from-beginning
+docker exec -it <nama_container_kafka> kafka-console-consumer.sh --topic <contoh-topik> --bootstrap-server localhost:9092 --from-beginning
 ```
 
 6. Mematikan Kafka
@@ -65,3 +65,33 @@ Untuk menghentikan Kafka dan Zookeeper:
 ```bash
 docker-compose down
 ```
+
+## Contoh Kode Python untuk Producer dan Consumer
+Anda dapat menggunakan Python untuk membuat producer dan consumer. Pastikan Anda telah menginstal kafka-python sebelum melanjutkan.
+
+- Menginstal Kafka Python:
+```bash
+pip install kafka-python
+```
+
+- Untuk membuat topik sensor-suhu dengan (nama_container_kafka = kafka)
+```bash
+docker exec -it kafka kafka-topics.sh --create --topic sensor-suhu --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+```
+
+- Untuk memeriksa topik sudah dibuat atau belum
+```bash
+docker exec -it kafka kafka-topics.sh --list --bootstrap-server localhost:9092
+```
+
+### Menggunakan kode yang yang sudah disediakan
+Jalankan producer di terminal baru:
+```bash
+python producer_sensor.py
+```
+
+Jalankan consumer di terminal baru:
+```bash
+python consumer_stream.py
+```
+Sekarang, producer akan mengirimkan data secara berkala ke topik sensor-suhu, dan consumer akan menerima dan menampilkan pesan tersebut.
