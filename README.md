@@ -6,7 +6,7 @@ Proyek ini adalah contoh sederhana untuk menjalankan Apache Kafka menggunakan Do
 
 Clone proyek ini ke komputer lokal Anda:
 ```bash
-git clone https://github.com/derkora/simple-kafka.git
+git clone https://github.com/Derkora/simple-kafka.git
 cd simple-kafka
 ```
 
