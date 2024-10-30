@@ -27,7 +27,6 @@ Ini akan menjalankan Zookeeper dan Kafka di dalam kontainer Docker. Kafka akan t
 
 Periksa apakah layanan berjalan dengan baik:
 ```bash
-Copy code
 docker-compose ps
 ```
 
@@ -37,26 +36,26 @@ Setelah Kafka berjalan, Anda bisa menggunakan Kafka producer dan consumer untuk 
 
 - Membuat Topik
 
-Jalankan perintah berikut untuk membuat topik baru bernama test-topic:
+Jalankan perintah berikut untuk membuat topik baru bernama contoh-topic:
 
 ```bash
-docker exec -it <container_kafka> kafka-topics.sh --create --topic sensor-suhu --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+docker exec -it <container_kafka> kafka-topics.sh --create --topic <contoh-topik> --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
 ```
 - Mengirim Pesan
 
 Untuk mengirim pesan menggunakan producer:
 
 ```bash
-docker exec -it <container_kafka> kafka-console-producer.sh --topic sensor-suhu --bootstrap-server localhost:9092
-Ketik pesan Anda, kemudian tekan Enter untuk mengirim.
+docker exec -it <container_kafka> kafka-console-producer.sh --topic <contoh-topik> --bootstrap-server localhost:9092
 ```
+Ketik pesan Anda, kemudian tekan Enter untuk mengirim.
 
 - Menerima Pesan
 
 Untuk menerima pesan menggunakan consumer:
 
 ```bash
-docker exec -it <container_kafka> kafka-console-consumer.sh --topic sensor-suhu --bootstrap-server localhost:9092 --from-beginning
+docker exec -it <container_kafka> kafka-console-consumer.sh --topic <contoh-topik> --bootstrap-server localhost:9092 --from-beginning
 ```
 
 6. Mematikan Kafka
