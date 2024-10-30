@@ -28,14 +28,14 @@ sensor_df = sensor_data \
     .select("data.sensor_id", "data.suhu")
 
 # Membuat kolom baru dengan satuan "°C"
-sensor_df_with_unit = sensor_df.withColumn("suhu_dengan_satuan", concat(col("suhu"), lit("°C")))
+sensor_df_with_unit = sensor_df.withColumn("suhu", concat(col("suhu"), lit("°C")))
 
 # Filter suhu > 80°C
 alert_df = sensor_df_with_unit.filter(sensor_df.suhu > 80)
 
 # Menampilkan peringatan dengan suhu dalam "°C"
 query = alert_df \
-    .select("sensor_id", "suhu_dengan_satuan") \
+    .select("sensor_id", "suhu") \
     .writeStream \
     .outputMode("append") \
     .format("console") \
