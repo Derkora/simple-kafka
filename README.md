@@ -98,3 +98,6 @@ Jalankan consumer di terminal baru:
 python consumer_stream.py
 ```
 Sekarang, producer akan mengirimkan data secara berkala ke topik sensor-suhu, dan consumer akan menerima dan menampilkan pesan tersebut.
+
+## Hasil
+![hasil](img/Hasil.png)
